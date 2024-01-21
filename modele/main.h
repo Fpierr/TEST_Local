@@ -13,7 +13,7 @@
 #define SCREEN_WIDTH  800
 #define SCREEN_HEIGHT 600
 
-void readDTMFromFile(const char *fileName, int dtm[DTM_WIDTH][DTM_HEIGHT]);
+int readDTMFromFile(const char *fileName, int dtm[DTM_WIDTH][DTM_HEIGHT]);
 void displayDTM(SDL_Renderer *renderer, int dtm[DTM_WIDTH][DTM_HEIGHT]);
 
 #endif  /* MAIN_H */

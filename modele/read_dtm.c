@@ -8,7 +8,7 @@
  *
  * Return: 0 on success, -1 on failure.
  */
-void readDTMFromFile(const char *fileName, int dtm[DTM_WIDTH][DTM_HEIGHT])
+int readDTMFromFile(const char *fileName, int dtm[DTM_WIDTH][DTM_HEIGHT])
 {
 	FILE *file = fopen(fileName, "r");
 	int i, j;
@@ -17,7 +17,13 @@ void readDTMFromFile(const char *fileName, int dtm[DTM_WIDTH][DTM_HEIGHT])
 	{
 		fprintf(stderr, "Error opening file: %s\n", fileName);
 		perror("Error opening file");
-		exit(1);
+		return (-1);
+	}
+	if (fscanf(file, "%*[^\n]\n") == EOF)
+	{
+		fprintf(stderr, "Error skipping header line in file: %s\n", fileName);
+		fclose(file);
+		return (-1);
 	}
 	/* Assume dtm.txt contains DTM_WIDTH * DTM_HEIGHT integers */
 	for (i = 0; i < DTM_WIDTH; ++i)
@@ -33,4 +39,7 @@ void readDTMFromFile(const char *fileName, int dtm[DTM_WIDTH][DTM_HEIGHT])
 		}
 	}
 	fclose(file);
+	printf("File read successfully.\n");
+
+	return (0);
 }
