@@ -25,7 +25,7 @@ void displayDTM(SDL_Renderer *renderer, int dtm[DTM_WIDTH][DTM_HEIGHT])
 			SDL_SetRenderDrawColor(renderer, color, color, color, 255);
 
 			/* Draw a rectangle */
-			rect = {x * rectWidth, y * rectHeight, rectWidth, rectHeight};
+			rect = (SDL_Rect){x * rectWidth, y * rectHeight, rectWidth, rectHeight};
 			SDL_RenderFillRect(renderer, &rect);
 		}
 	}

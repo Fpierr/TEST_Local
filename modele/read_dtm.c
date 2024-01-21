@@ -16,6 +16,7 @@ void readDTMFromFile(const char *fileName, int dtm[DTM_WIDTH][DTM_HEIGHT])
 	if (file == NULL)
 	{
 		fprintf(stderr, "Error opening file: %s\n", fileName);
+		perror("Error opening file");
 		exit(1);
 	}
 	/* Assume dtm.txt contains DTM_WIDTH * DTM_HEIGHT integers */
