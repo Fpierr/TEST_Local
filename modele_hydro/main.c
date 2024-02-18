@@ -29,7 +29,7 @@ int main(void)
 		SDL_DestroyWindow(window);
 		return (1);
 	}
-	readDTMFromFile("/home/fanuel/TEST_Local/modele/dtm.txt", dtm);
+	readDTMFromFile("dtm.txt", dtm);
 	while (!quit)
 	{
 		while (SDL_PollEvent(&e) != 0)
